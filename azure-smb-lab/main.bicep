@@ -117,6 +117,9 @@ resource pipApp 'Microsoft.Network/publicIPAddresses@2023-04-01' = {
 resource nicDc 'Microsoft.Network/networkInterfaces@2023-04-01' = {
   name: '${namePrefix}-nic-dc01'
   location: location
+  dependsOn: [
+    vnet
+  ]  
   properties: {
     ipConfigurations: [
       {
@@ -134,6 +137,9 @@ resource nicDc 'Microsoft.Network/networkInterfaces@2023-04-01' = {
 
 resource nicFs 'Microsoft.Network/networkInterfaces@2023-04-01' = {
   name: '${namePrefix}-nic-fs01'
+  dependsOn: [
+    vnet
+  ]  
   location: location
   properties: {
     ipConfigurations: [
@@ -152,6 +158,9 @@ resource nicFs 'Microsoft.Network/networkInterfaces@2023-04-01' = {
 
 resource nicSql 'Microsoft.Network/networkInterfaces@2023-04-01' = {
   name: '${namePrefix}-nic-sql01'
+  dependsOn: [
+    vnet
+  ]  
   location: location
   properties: {
     ipConfigurations: [
@@ -170,6 +179,9 @@ resource nicSql 'Microsoft.Network/networkInterfaces@2023-04-01' = {
 
 resource nicApp 'Microsoft.Network/networkInterfaces@2023-04-01' = {
   name: '${namePrefix}-nic-app01'
+  dependsOn: [
+    vnet
+  ]  
   location: location
   properties: {
     ipConfigurations: [
